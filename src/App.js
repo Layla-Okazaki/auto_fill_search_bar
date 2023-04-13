@@ -37,7 +37,6 @@ function App() {
 
   function handleSubmit(results) {
     setSearching(false);
-    console.log(results);
     setSearchResults(results);
   }
 
@@ -50,21 +49,13 @@ function App() {
       );
   }
 
-  // conditional rendering
-  // (bool && <div>will render</div>)
-
-  // rendering for each item in array
-  // {array.map((songName) => {
-  //  return <div></div>
-  // })}
-
   return (
-    <div className="App">
-      <div className="search-bar">
-        <div className="input-container">
+    <div className='App'>
+      <div className='search-bar'>
+        <div className='input-container'>
           <input
             value={input}
-            type="text"
+            type='text'
             onChange={handleChange}
             onKeyDown={handleKeyDown}
           />
@@ -77,11 +68,11 @@ function App() {
               );
             }}
           >
-            <img src={searchBar} alt="search" />
+            <img src={searchBar} alt='search' />
           </button>
         </div>
         {input && (
-          <div className="drop-down">
+          <div className='drop-down'>
             {searching &&
               people
                 .filter((person) =>
@@ -105,17 +96,17 @@ function App() {
           </div>
         )}
       </div>
-      <div className="results">
+      <div className='results'>
         {Array.isArray(searchResults) ? (
           searchResults.map((person, index) => {
             return (
               <div
-                className="person"
+                className='person'
                 key={index}
                 onClick={() => setSearchResults(person)}
               >
-                <div className="img-container">
-                  <img src={person.image} alt="" />
+                <div className='img-container'>
+                  <img src={person.image} alt='' />
                 </div>
 
                 <h1>{person.name}</h1>
@@ -123,8 +114,8 @@ function App() {
             );
           })
         ) : (
-          <div className="single-search">
-            <img src={searchResults.image} alt="profile picture" />
+          <div className='single-search'>
+            <img src={searchResults.image} alt='profile picture' />
             <h1>{searchResults.name}</h1>
             <h2>{searchResults.gender}</h2>
             <h2>{searchResults.email}</h2>
